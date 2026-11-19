@@ -1,34 +1,34 @@
-# keep_awake_parcyunstudio
+# keep-awake
 
 ## 프로그램 소개
 
 이 프로그램은 Windows의 화면 절전 설정을 변경하지 않고, 화면이 계속 켜져 있어야 한다는 신호를 운영체제에 전달합니다.
 
-마우스 커서를 움직이거나 키보드 입력을 발생시키지 않으므로 문서 작성, 수업 자료 작업, 인터넷 사용에 방해가 되지 않습니다.
+마우스 커서는 움직이지 않습니다. Windows 화면 유지 신호와 함께 4분마다 F15 키 누름·해제 입력을 보냅니다. F15를 단축키로 사용하는 프로그램에서는 영향을 줄 수 있습니다.
 
 ## 설치 및 실행
 
 1. ZIP 파일의 압축을 풉니다.
-2. 압축을 푼 폴더 안의 `keep_awake_parcyunstudio.cmd`를 더블클릭합니다.
+2. 압축을 푼 폴더 안의 `keep-awake.cmd`를 더블클릭합니다.
 3. 검은색 창에 설치 완료 메시지가 표시되면 Enter 키를 눌러 창을 닫습니다.
 
 한 번 실행하면 다음 작업이 자동으로 진행됩니다.
 
-- 프로그램 파일을 `%LOCALAPPDATA%\keep_awake_parcyunstudio`에 복사합니다.
-- Windows 시작 프로그램에 `keep_awake_parcyunstudio.lnk`를 등록합니다.
+- 프로그램 파일을 `%LOCALAPPDATA%\keep-awake`에 복사합니다.
+- Windows 시작 프로그램에 `keep-awake.lnk`를 등록합니다.
 - 현재 즉시 프로그램을 실행합니다.
 
 다음 로그인부터는 별도의 조작 없이 자동으로 실행됩니다.
 
 ## 작동 방식
 
-프로그램은 약 1분마다 Windows에 화면 유지 신호를 보냅니다. 실제 마우스·키보드 입력은 만들지 않습니다.
+프로그램은 약 4분마다 Windows에 시스템·화면 유지 신호를 보내고 F15 키 누름·해제 입력을 발생시킵니다.
 
 따라서 다음 항목은 변경하지 않습니다.
 
 - Windows 전원 및 화면 절전 설정
 - 마우스 커서 위치
-- 키보드 입력 및 활성 창
+- 활성 창
 - 파일, 문서, 인터넷 연결
 
 ## 중지 방법
@@ -37,15 +37,19 @@
 
 다시 로그인할 때 자동 실행되지 않게 하려면 다음 시작 프로그램 폴더에서 아래 바로가기를 삭제합니다.
 
-`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\keep_awake_parcyunstudio.lnk`
+`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\keep-awake.lnk`
 
 ## 완전히 삭제하기
 
 1. 작업 관리자에서 `keep_awake.ps1` 프로세스를 종료합니다.
-2. 시작 프로그램 폴더의 `keep_awake_parcyunstudio.lnk`를 삭제합니다.
+2. 시작 프로그램 폴더의 `keep-awake.lnk`를 삭제합니다.
 3. 다음 폴더를 삭제합니다.
 
-`%LOCALAPPDATA%\keep_awake_parcyunstudio`
+`%LOCALAPPDATA%\keep-awake`
+
+## 이전 버전에서 옮기기
+
+기존 버전을 설치했다면 먼저 해당 PowerShell 프로세스를 종료하고 기존 시작 프로그램 바로가기를 삭제한 뒤 새 버전을 설치하세요. 새 설치 경로와 중복 실행 방지 이름이 달라 이전 버전과 동시에 실행될 수 있습니다.
 
 ## 주의 사항
 

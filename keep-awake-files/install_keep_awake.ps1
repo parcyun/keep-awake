@@ -1,10 +1,10 @@
 $ErrorActionPreference = 'Stop'
 
 $packageRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$installRoot = Join-Path $env:LOCALAPPDATA 'keep_awake_parcyunstudio'
+$installRoot = Join-Path $env:LOCALAPPDATA 'keep-awake'
 $installedScript = Join-Path $installRoot 'keep_awake.ps1'
 $startupRoot = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs\Startup'
-$shortcutPath = Join-Path $startupRoot 'keep_awake_parcyunstudio.lnk'
+$shortcutPath = Join-Path $startupRoot 'keep-awake.lnk'
 $powershellPath = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
 
 New-Item -ItemType Directory -Force -Path $installRoot | Out-Null
@@ -15,7 +15,7 @@ $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = $powershellPath
 $shortcut.Arguments = '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "' + $installedScript + '"'
 $shortcut.WorkingDirectory = $installRoot
-$shortcut.Description = 'Keeps the display awake without mouse or keyboard input'
+$shortcut.Description = 'Keeps the display awake with periodic F15 activity'
 $shortcut.Save()
 
 Get-Process powershell -ErrorAction SilentlyContinue |

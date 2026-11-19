@@ -1,6 +1,6 @@
-# Keeps the display awake without simulating mouse or keyboard input.
+# Keeps the display awake and sends an F15 press/release every four minutes.
 $createdNew = $false
-$mutex = New-Object System.Threading.Mutex($true, 'Local\ParcyunStudioKeepAwake', [ref]$createdNew)
+$mutex = New-Object System.Threading.Mutex($true, 'Local\KeepAwake', [ref]$createdNew)
 
 if (-not $createdNew) { exit 0 }
 
